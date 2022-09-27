@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-    BUILD_SCRIPTS_GIT="git@github.com:trungle98/test-jenkins.git"
+    BUILD_SCRIPTS_GIT="https://github.com/trungle98/test-jenkins.git"
     BUILD_SCRIPTS='mypipeline'
     BUILD_HOME='/var/lib/jenkins/workspace'
     } 
