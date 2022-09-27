@@ -39,14 +39,14 @@ pipeline {
             }
         }
         stage('Build') {
-            sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS;\
-                npm install;\
-                npm run build;\
-                USE_SSH npm run deploy;\
-            "
-            //implement pipeline code 
-        }
-        stage('Test') {
+            steps{
+                sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS;\
+                    npm install;\
+                    npm run build;\
+                    USE_SSH npm run deploy;\
+                "
+            }
+
             //implement pipeline code 
         }
     }
