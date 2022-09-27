@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        nodejs '18.9.1'
+    }
+
     environment {
     BUILD_SCRIPTS_GIT="https://github.com/trungle98/test-jenkins.git"
     BUILD_SCRIPTS='mypipeline'
@@ -41,14 +45,11 @@ pipeline {
         }
         stage('Build') {
             steps{
-                nodejs(nodeJSInstallationName: 'Node 18.9.1', configId: '<config-file-provider-id>'){
                     sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS;\
                         npm install;\
                         npm run build;\
                         USE_SSH npm run deploy;\
                 "
-                }
-
             }
 
             //implement pipeline code 
