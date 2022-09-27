@@ -42,7 +42,7 @@ pipeline {
             sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS;\
                 npm install;\
                 npm run build;\
-                USE_SSH npm run deploy
+                USE_SSH npm run deploy;\
             "
             //implement pipeline code 
         }
