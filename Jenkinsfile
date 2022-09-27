@@ -30,6 +30,7 @@ pipeline {
         stage('Clone') {
             //implement pipeline code 
             steps {
+                
                 sh "mkdir -p $WORKSPACE/repo;\
                     git config --global user.email 'trungle98hn@gmail.com';\
                     git config --global user.name 'anthony';\
@@ -40,11 +41,14 @@ pipeline {
         }
         stage('Build') {
             steps{
-                sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS;\
-                    npm install;\
-                    npm run build;\
-                    USE_SSH npm run deploy;\
+                nodejs(nodeJSInstallationName: 'Node 6.x', configId: '<config-file-provider-id>'){
+                    sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS;\
+                        npm install;\
+                        npm run build;\
+                        USE_SSH npm run deploy;\
                 "
+                }
+
             }
 
             //implement pipeline code 
