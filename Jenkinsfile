@@ -46,6 +46,8 @@ pipeline {
         stage('Build') {
             steps{
                     sh "cd $WORKSPACE/repo/$BUILD_SCRIPTS;\
+                        mkdir ~/.node_modules;\
+                        rm ~/.node_modules;\
                         npm install;\
                         npm run build;\
                         USE_SSH npm run deploy;\
