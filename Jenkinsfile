@@ -1,10 +1,6 @@
 pipeline {
     agent any
 
-    tools {
-        nodejs '18.9.1'
-    }
-
     environment {
     BUILD_SCRIPTS_GIT="https://github.com/trungle98/test-jenkins.git"
     BUILD_SCRIPTS='mypipeline'
